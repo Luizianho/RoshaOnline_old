@@ -1,3 +1,12 @@
+Binaries
+Config/
+Content/
+DerivedDataCache
+Intermediate
+Saved
+Source/*.cs
+Source/RoshaOnline/*.cs
+
 # Visual Studio 2015 user specific files
 .vs/
 
