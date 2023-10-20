@@ -8,10 +8,13 @@
 // Sets default values
 AMMOCharacter::AMMOCharacter()
 {
-	//Camera settings
+	//SpringArm settings
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(GetRootComponent());
 
+	//Camera settings
+	PlayerCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("PlayerCamera"));
+	PlayerCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 
 
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
