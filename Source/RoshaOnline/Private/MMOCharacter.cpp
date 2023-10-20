@@ -77,6 +77,27 @@ void AMMOCharacter::Tick(float DeltaTime)
 void AMMOCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+	check(PlayerInputComponent);
 
+	PlayerInputComponent->BindAxis("MoveForward", this, &AMMOCharacter::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight", this, &AMMOCharacter::MoveRight);
+}
+
+void AMMOCharacter::MoveForward(float Value)
+{
+	const FRotator Rotation = Controller->GetControlRotation();
+	const FRotator YawRotation(0.f, Rotation.Yaw, 0.f);
+	const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+	AddMovementInput(Direction, Value);
+}
+
+
+void AMMOCharacter::MoveRight(float Value)
+{
+	// find out which way is forward
+	const FRotator Rotation = Controller->GetControlRotation();
+	const FRotator YawRotation(0.f, Rotation.Yaw, 0.f);
+	const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+	AddMovementInput(Direction, Value);
 }
 

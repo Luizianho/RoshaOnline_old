@@ -56,6 +56,10 @@ protected:
 	class USkeletalMeshComponent* Slot3;
 
 public:	
+	//player movement
+	void MoveForward(float Value);
+	void MoveRight(float Value);
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
