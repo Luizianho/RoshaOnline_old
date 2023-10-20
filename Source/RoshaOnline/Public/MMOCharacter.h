@@ -60,6 +60,9 @@ public:
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+		class USpringArmComponent* CameraBoom;
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
