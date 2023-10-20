@@ -16,6 +16,12 @@ public:
 	AMMOCharacter();
 
 protected:
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Camera")
+	FVector SetCameraLocation;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Camera")
+	FRotator SetCameraRotation;
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 

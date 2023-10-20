@@ -8,9 +8,16 @@
 // Sets default values
 AMMOCharacter::AMMOCharacter()
 {
+	//SetCameraLocation 
+	SetCameraLocation = FVector(0.f, 0.f, 70.f);
+	SetCameraRotation = FRotator(-55.f, 0.f, 0.f);
+
 	//SpringArm settings
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(GetRootComponent());
+	CameraBoom->SetRelativeLocation(SetCameraLocation);
+	CameraBoom->SetRelativeRotation(SetCameraRotation);
+	CameraBoom->TargetArmLength = 600.f;
 
 	//Camera settings
 	PlayerCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("PlayerCamera"));
