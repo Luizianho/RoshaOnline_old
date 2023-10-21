@@ -19,10 +19,10 @@ public:
 	URoshaGameInstance();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Replicated, Category = "Player DB")
-	int MyAccountID;
+	int32 MyAccountID;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Replicated, Category = "Player DB")
-	int MyPlayerID;
+	int32 MyPlayerID;
 
 	virtual void GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const override;
 	

@@ -6,20 +6,28 @@
 #include "MMOCharacter.h"
 #include "Kismet/GameplayStatics.h"
 #include "RoshaGameInstance.h"
+#include "RoshaPlayerState.h"
+
 
 ARoshaPlayerController::ARoshaPlayerController()
 {
 	CheatClass = nullptr;
+	
+
 }
 
-bool ARoshaPlayerController::AuthorizeEnter_Validate(int ValAccountID, int ValPlayerID)
+bool ARoshaPlayerController::AuthorizeEnter_Validate(int32 ValAccountID, int32 ValPlayerID)
 {
 	return true;
 }
 
-void ARoshaPlayerController::AuthorizeEnter_Implementation(int ValAccountID, int ValPlayerID)
+void ARoshaPlayerController::AuthorizeEnter_Implementation(int32 ValAccountID, int32 ValPlayerID)
 {
 	
+	LocalPlayerState = Cast<ARoshaPlayerState>(PlayerState); //StateCharacterID xD
+	
+	ValAccountID = InstanceAccountID;
+	LocalPlayerState->StateCharacterID = ValPlayerID;
 }
 
 void ARoshaPlayerController::BeginPlay()
@@ -37,8 +45,8 @@ void ARoshaPlayerController::BeginPlay()
 		{
 			UE_LOG(LogTemp, Warning, TEXT("MMOInstance jest OK!"));
 			//local variable from MMOInstance
-			int AccountID = MMOInstance->MyAccountID;
-			int PlayerID = MMOInstance->MyPlayerID;
+			int32 AccountID = MMOInstance->MyAccountID;
+			int32 PlayerID = MMOInstance->MyPlayerID;
 
 			if (HasAuthority())
 			{

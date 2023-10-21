@@ -24,6 +24,17 @@ public:
 	UPROPERTY()
 	class AMMOCharacter* LocalMMOCharacter;
 
+	UPROPERTY()
+	class ARoshaPlayerState* LocalPlayerState;
+
 	UFUNCTION(Server, Reliable, WithValidation, BlueprintCallable)
-	void AuthorizeEnter(int ValAccountID, int ValPlayerID);
+	void AuthorizeEnter(int32 ValAccountID, int32 ValPlayerID);
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player Info")
+	int32 InstanceAccountID;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player Info")
+	int32 InstancePlayerID;
+
+
 };

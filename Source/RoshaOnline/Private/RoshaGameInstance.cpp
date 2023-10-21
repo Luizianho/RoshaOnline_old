@@ -13,6 +13,5 @@ void URoshaGameInstance::GetLifetimeReplicatedProps(TArray< FLifetimeProperty >&
 
 URoshaGameInstance::URoshaGameInstance()
 {
-	MyAccountID = 15;
-	MyPlayerID = 20;
+	
 }
