@@ -24,6 +24,6 @@ public:
 	UPROPERTY()
 	class AMMOCharacter* LocalMMOCharacter;
 
-	UFUNCTION(Server, Reliable, WithValidation)
-	void AuthorizeEnter(float ValAccountID, float ValPlayerID);
+	UFUNCTION(Server, Reliable, WithValidation, BlueprintCallable)
+	void AuthorizeEnter(int ValAccountID, int ValPlayerID);
 };

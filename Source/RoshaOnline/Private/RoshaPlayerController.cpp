@@ -10,18 +10,16 @@
 ARoshaPlayerController::ARoshaPlayerController()
 {
 	CheatClass = nullptr;
-	//LocalMMOCharacter = nullptr;
 }
 
-bool ARoshaPlayerController::AuthorizeEnter_Validate(float ValAccountID, float ValPlayerID)
+bool ARoshaPlayerController::AuthorizeEnter_Validate(int ValAccountID, int ValPlayerID)
 {
 	return true;
 }
 
-void ARoshaPlayerController::AuthorizeEnter_Implementation(float ValAccountID, float ValPlayerID)
+void ARoshaPlayerController::AuthorizeEnter_Implementation(int ValAccountID, int ValPlayerID)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Account ID: %d"), ValAccountID);
-	UE_LOG(LogTemp, Warning, TEXT("Player ID: %d"), ValPlayerID);
+	
 }
 
 void ARoshaPlayerController::BeginPlay()
@@ -39,8 +37,8 @@ void ARoshaPlayerController::BeginPlay()
 		{
 			UE_LOG(LogTemp, Warning, TEXT("MMOInstance jest OK!"));
 			//local variable from MMOInstance
-			float AccountID = MMOInstance->MyAccountID;
-			float PlayerID = MMOInstance->MyPlayerID;
+			int AccountID = MMOInstance->MyAccountID;
+			int PlayerID = MMOInstance->MyPlayerID;
 
 			if (HasAuthority())
 			{
